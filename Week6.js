@@ -2,54 +2,78 @@
 // establish two arrays one for the card suits and one for the rank or number on the card. 
 
 const suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds'];
-const rank = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace'];
+const face = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace'];
+let fullDeck = [];
+let shuffledDeck = [];
+let p1score = 0;
+let p2score = 0;
+let hand1 = [];
+let hand2 = [];
 
 
-//Deck class with  build and shuffle functions
-class Deck {
-    constructor() {
-        this.deck = [];
-        
+//Card class with  build and shuffle functions
+class Card {
+    constructor(a, b, c){
+        this.suit = a
+        this.face = b
+        this.value = c 
     }
-// this will create the deck by iterating through the array and creating a new array with a suit and rank assigned to each card.
-// it also adds a value parameter which is how the cards will be compared to each other to determine who wins. 
-    buildDeck() {
-        
-        for (let i = 0; i < suits.length; i++) {
-            for (let j = 0; j < rank.length; j++) {
-             this.deck.push({
-                suits: suits[i],
-                rank: rank[j],
-                value: j+1
-             });
-            }
-        }
-        return this.deck; 
-    }
-// this function shuffles the cards to return a new array of cards in a random order
-    shuffle() {
-        let count = this.deck.length;
-            while(count) {
-                this.deck.push(this.deck.splice(Math.floor(Math.random() * count), 1)[0]);
-                count -= 1;
-        }
-        return this.deck; 
-    }
-     
 }
 
+// create new deck
+suits.forEach((suit) =>
+  face.forEach((face, index) => {
+    fullDeck.push(new Card(suit, face, index++));
+  })
+);
 
-const fullDeck = new Deck(); 
+// for (i = 0, i; i < suits.length; i++){
+//     for (j = 0; j< face.length; j++){
+//          testCard = new Card( suits[i], face[j], j+1);
+//          fullDeck.push(testCard);
+         
+// //         //console.log  (testCard);
+//   }
+// }
+  
 
-// creates variable of fullDeck that can be built and shuffled. 
-fullDeck.buildDeck();
 
-shuffledDeck = fullDeck.shuffle(); 
+// 1: Randomize deck first (use sort method)
+shuffledDeck = fullDeck
+  .map((value) => ({ value, sort: Math.random() }))
+  .sort((a, b) => a.sort - b.sort)
+  .map(({ value }) => value);
 
-console.log(shuffledDeck); 
+// Check it
+// console.log(shuffledDeck);
+// console.log (fullDeck);
 
-// slice into 2 decks
-let hand1 = shuffledDeck.slice(0, 26);
-let hand2 = shuffledDeck.slice(-26);
-console.log (hand1);
-console.log(hand2); 
+//2: use slice to split the deck into 2 hands
+hand1 = shuffledDeck.slice(0, 26);
+hand2 = shuffledDeck.slice(26);
+
+//Check it
+// console.log (hand1);
+// console.log(hand2); 
+
+
+//3: for loop with if else if statement to compare cards and award points. 
+for (i = 0; i < hand1.length; i++) {
+
+    if (hand1[i].value > hand2[i].value){
+        // console.log (hand1[i].value);
+        p1score += 1
+        console.log (`Player 1 wins and has ${p1score} points`);
+    } else if (hand1[i].value < hand2[i].value) { 
+        p2score +=1
+        console.log (`Player 2 wins and has ${p2score} points`);
+    } else  {
+        console.log (`Tie Player 1 has ${p1score} points Player 2 has ${p2score} points`);
+    }
+    }
+  //4: Declare winner
+  if (p1score>p2score){
+    console.log(`Player 1 is the winner!`);
+  } else if (p1score<p2score){
+    console.log(`Player 2 is the winner!`);
+  } else {console.log `Score is tied! No one wins!`}
