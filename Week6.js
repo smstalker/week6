@@ -32,7 +32,7 @@ suits.forEach((suit) =>
 //          testCard = new Card( suits[i], face[j], j+1);
 //          fullDeck.push(testCard);
          
-// //         //console.log  (testCard);
+// //         //console.log  (fullDeck);
 //   }
 // }
   
@@ -53,15 +53,17 @@ hand1 = shuffledDeck.slice(0, 26);
 hand2 = shuffledDeck.slice(26);
 
 //Check it
-// console.log (hand1);
-// console.log(hand2); 
+console.log ('Player 1 hand:')
+console.log (hand1);
+console.log ('Player 2 hand:')
+console.log (hand2); 
 
 
 //3: for loop with if else if statement to compare cards and award points. 
 for (i = 0; i < hand1.length; i++) {
 
     if (hand1[i].value > hand2[i].value){
-        // console.log (hand1[i].value);
+        console.log ("Player 1 card: " + (hand1[i].value) + " Player 2 card: " + (hand2[i].value));
         p1score += 1
         console.log (`Player 1 wins and has ${p1score} points`);
     } else if (hand1[i].value < hand2[i].value) { 
@@ -72,6 +74,7 @@ for (i = 0; i < hand1.length; i++) {
     }
     }
   //4: Declare winner
+
   if (p1score>p2score){
     console.log(`Player 1 is the winner!`);
   } else if (p1score<p2score){
