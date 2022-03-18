@@ -61,9 +61,9 @@ console.log (hand2);
 
 //3: for loop with if else if statement to compare cards and award points. 
 for (i = 0; i < hand1.length; i++) {
+   console.log (`Player 1 card: ${hand1[i].face} of ${hand1[i].suit}  Player 2 card: ${hand2[i].face} of ${hand2[i].suit}`);
 
     if (hand1[i].value > hand2[i].value){
-        //console.log ("Player 1 card: " + (hand1[i].value) + " Player 2 card: " + (hand2[i].value));
         p1score += 1
         console.log (`Player 1 wins and has ${p1score} points`);
     } else if (hand1[i].value < hand2[i].value) { 
