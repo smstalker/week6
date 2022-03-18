@@ -22,13 +22,15 @@ class Card {
 }
 
 // create new deck with function 
-
+function createNewDeck(){
 suits.forEach((suit) =>
   face.forEach((face, index) => {
     fullDeck.push(new Card(suit, face, index++));
   })
 );
+}
 
+createNewDeck();
 
 // for (i = 0, i; i < suits.length; i++){
 //     for (j = 0; j< face.length; j++){
@@ -63,6 +65,7 @@ console.log (hand2);
 
 
 //3: for loop with if else if statement to compare cards and award points. 
+function playingTheGame(){
 for (i = 0; i < hand1.length; i++) {
    console.log (`Player 1 card: ${hand1[i].face} of ${hand1[i].suit}  Player 2 card: ${hand2[i].face} of ${hand2[i].suit}`);
 
@@ -76,6 +79,8 @@ for (i = 0; i < hand1.length; i++) {
         console.log (`Tie Player 1 has ${p1score} points Player 2 has ${p2score} points`);
     }
     }
+  }
+  playingTheGame();
   //4: Declare winner
 
   if (p1score>p2score){

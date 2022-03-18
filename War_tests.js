@@ -1,7 +1,13 @@
+
+
 var expect = chai.expect;
 
 
-    describe("fullDeck" , function(){
-        it('should return an array with 52 objects in it')
+    describe("Create Deck Function" , function(){
+        it('should return an object', function(){
+              let x = fullDeck;
+              expect({x}).to.be.an('object');
+                
+        })
     })
     
