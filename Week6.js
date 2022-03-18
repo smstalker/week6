@@ -1,5 +1,5 @@
 // Assignment for week 6 of JavaScript t0 create an automated version of the classic card game WAR
-// establish two arrays one for the card suits and one for the rank or number on the card. 
+// establish two arrays one for the card suits and one for the rank or number on the card called face. 
 
 const suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds'];
 const face = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace'];
@@ -11,7 +11,8 @@ let hand1 = [];
 let hand2 = [];
 
 
-//Card class with  build and shuffle functions
+//Card class with suit, face and value constructors. 
+//Value is assigned so that cards can be compared later in the game. 
 class Card {
     constructor(a, b, c){
         this.suit = a
@@ -20,12 +21,14 @@ class Card {
     }
 }
 
-// create new deck
+// create new deck with function 
+
 suits.forEach((suit) =>
   face.forEach((face, index) => {
     fullDeck.push(new Card(suit, face, index++));
   })
 );
+
 
 // for (i = 0, i; i < suits.length; i++){
 //     for (j = 0; j< face.length; j++){
