@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="node_modules/mocha/mocha.css">
+</head>
+<body>
+    <div id="mocha"><p><a href=".">Index</a></p></div>
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/chai/chai.js"></script>
+    <script>mocha.setup('bdd')</script>
+<!-- load code you want to test here -->
+    <script src="week6/week6.js"></script>
+
+    <!-- load test files here -->     
+    <script src="War_tests.js"></script>
+    <script>mocha.run();</script>
+</body>
+</html>
