@@ -23,15 +23,16 @@ class Card {
 
 // create new deck with function 
 function createNewDeck(){
-suits.forEach((suit) =>
-  face.forEach((face, index) => {
-    fullDeck.push(new Card(suit, face, index++));
-  })
-);
+  suits.forEach((suit) =>
+    face.forEach((face, index) => {
+      fullDeck.push(new Card(suit, face, index++));
+    })
+  );
 }
 
 createNewDeck();
 
+// first attempt at building a deck function
 // for (i = 0, i; i < suits.length; i++){
 //     for (j = 0; j< face.length; j++){
 //          testCard = new Card( suits[i], face[j], j+1);
@@ -65,6 +66,7 @@ console.log (hand2);
 
 
 //3: for loop with if else if statement to compare cards and award points. 
+
 function playingTheGame(){
 for (i = 0; i < hand1.length; i++) {
    console.log (`Player 1 card: ${hand1[i].face} of ${hand1[i].suit}  Player 2 card: ${hand2[i].face} of ${hand2[i].suit}`);
@@ -72,19 +74,20 @@ for (i = 0; i < hand1.length; i++) {
     if (hand1[i].value > hand2[i].value){
         p1score += 1
         console.log (`Player 1 wins and has ${p1score} points`);
-    } else if (hand1[i].value < hand2[i].value) { 
+      } else if (hand1[i].value < hand2[i].value) { 
         p2score +=1
         console.log (`Player 2 wins and has ${p2score} points`);
-    } else  {
+      } else  {
         console.log (`Tie Player 1 has ${p1score} points Player 2 has ${p2score} points`);
-    }
+      }
     }
   }
   playingTheGame();
+
   //4: Declare winner
 
   if (p1score>p2score){
     console.log(`Player 1 is the winner!`);
-  } else if (p1score<p2score){
+    } else if (p1score<p2score){
     console.log(`Player 2 is the winner!`);
-  } else {console.log `Score is tied! No one wins!`}
+    } else {console.log `Score is tied! No one wins!`}
