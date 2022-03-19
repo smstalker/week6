@@ -1,4 +1,4 @@
-// Assignment for week 6 of JavaScript t0 create an automated version of the classic card game WAR
+// Assignment for week 6 of JavaScript to create an automated version of the classic card game WAR
 // establish two arrays one for the card suits and one for the rank or number on the card called face. 
 
 const suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds'];
@@ -21,7 +21,7 @@ class Card {
     }
 }
 
-// create new deck with function 
+//1: Create new deck with function 
 function createNewDeck(){
   suits.forEach((suit) =>
     face.forEach((face, index) => {
@@ -44,7 +44,7 @@ createNewDeck();
   
 
 
-// 1: Randomize deck first (use sort method)
+// 2: Randomize deck first (use sort method)
 shuffledDeck = fullDeck
   .map((value) => ({ value, sort: Math.random() }))
   .sort((a, b) => a.sort - b.sort)
@@ -54,7 +54,7 @@ shuffledDeck = fullDeck
 // console.log(shuffledDeck);
 // console.log (fullDeck);
 
-//2: use slice to split the deck into 2 hands
+//3: use slice to split the deck into 2 hands
 hand1 = shuffledDeck.slice(0, 26);
 hand2 = shuffledDeck.slice(26);
 
@@ -65,7 +65,7 @@ console.log ('Player 2 hand:')
 console.log (hand2); 
 
 
-//3: for loop with if else if statement to compare cards and award points. 
+//4: for loop with if else if statement to compare cards and award points. 
 
 function playingTheGame(){
 for (i = 0; i < hand1.length; i++) {
@@ -84,7 +84,7 @@ for (i = 0; i < hand1.length; i++) {
   }
   playingTheGame();
 
-  //4: Declare winner
+  //5: Declare winner
 
   if (p1score>p2score){
     console.log(`Player 1 is the winner!`);
